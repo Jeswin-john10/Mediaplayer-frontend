@@ -4,9 +4,10 @@ import React from 'react'
 import Button from 'react-bootstrap/Button';
 import Modal from 'react-bootstrap/Modal';
 import { useState } from 'react';
-import { addvideoapi } from '../service/allapi';
 import { ToastContainer, toast } from 'react-toastify';
-function Add() {
+import 'react-toastify/dist/ReactToastify.css';
+import { addvideoapi } from '../service/allapi';
+function Add({setAddstatus}) {
   const [show, setShow] = useState(false);
   const [videoDetails, setVideoDetails] = useState({
     caption: "",
@@ -38,11 +39,14 @@ function Add() {
         const result = await addvideoapi({ caption, imgurl, embeddedurl: link })
         console.log(result);
         if(result.status >=200 && result.status <=300){
-          // toast.success('media upload successfully')
-          alert('media added succesfully')
+          toast.success('media upload successfully')
+          // alert('media added succesfully')
+          setAddstatus(result)
+
         }else{
-          // toast.warning(`something went wrong`)
-          alert('something went wrong')
+          toast.warning(`something went wrong`)
+          // alert('something went wrong')
+        
         }
 
       } else {
