@@ -1,9 +1,8 @@
 import './App.css'
 import { Route,Routes } from 'react-router-dom'
-
+import Home from './pages/home'
 import Footer from './components/Footer'
 import Landing from './pages/Landing'
-import Home from './pages/home'
 import Watchhistory from './pages/Watchhistory'
 import Header from './components/Header'
 
